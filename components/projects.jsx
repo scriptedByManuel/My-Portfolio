@@ -21,7 +21,7 @@ const projects = [
     image: "/invoice-app.png",
     tags: ["React", "Tailwind CSS", "API", "Responsive", "SWR", "React Router", "React Hook Form"],
     github: "https://github.com/scriptedByManuel/Invoice-App",
-    demo: "https://pixelsolutionsmm.netlify.app/",
+    demo: "https://devpixelsolutions.netlify.app/",
   },
 ]
 
