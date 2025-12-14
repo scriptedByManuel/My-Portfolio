@@ -14,6 +14,8 @@ const projects = [
     tags: ["React Router", "React Hook Form", "Responsive", "Supabase", "React", "Tailwind CSS"],
     github: "https://github.com/scriptedByManuel/TrendFlow",
     demo: "https://trendflowmv.netlify.app/",
+    warning:
+      "⚠️ Backend issue: Supabase restore is currently failing. Some data may not load properly.",
   },
   {
     title: "Pixel Solutions Invoice App",
@@ -93,6 +95,13 @@ export function Projects() {
                     </span>
                   ))}
                 </div>
+
+                {project.warning && (
+                  <div className="mb-3 rounded-md border border-yellow-500/30 bg-yellow-500/10 px-3 py-2 text-sm text-yellow-600">
+                    {project.warning}
+                  </div>
+                )}
+
                 <div className="flex gap-2">
                   <Button
                     variant="outline"
