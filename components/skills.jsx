@@ -5,17 +5,13 @@ import { useEffect, useRef, useState } from "react"
 
 const skills = [
   {
-    category: "Frontend",
-    items: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"],
+    category: "Tech Stack",
+    items: ["Tailwind CSS", "JavaScript", "React", "Next.js", "Node.js", "Express", "MongoDB", "MySQL", "Supabase"],
   },
   {
     category: "Tools",
-    items: ["Git", "GitHub", "VS Code", "Figma", "Chrome DevTools"],
-  },
-  {
-    category: "Learning",
-    items: ["TypeScript", "Next.js", "Node.js", "Responsive Design"],
-  },
+    items: ["Git", "GitHub", "Docker", "Coolify", "Linux", "VS Code", "Figma", "Chrome DevTools"],
+  }
 ]
 
 export function Skills() {
@@ -53,7 +49,7 @@ export function Skills() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6">
           {skills.map((skillGroup, index) => (
             <Card
               key={skillGroup.category}

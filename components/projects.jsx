@@ -14,8 +14,6 @@ const projects = [
     tags: ["React Router", "React Hook Form", "Responsive", "Supabase", "React", "Tailwind CSS"],
     github: "https://github.com/scriptedByManuel/TrendFlow",
     demo: "https://trendflowmv.netlify.app/",
-    warning:
-      "⚠️ Backend issue: Supabase restore is currently failing. Some data may not load properly.",
   },
   {
     title: "Pixel Solutions Invoice App",
@@ -24,6 +22,14 @@ const projects = [
     tags: ["React", "Tailwind CSS", "API", "Responsive", "SWR", "React Router", "React Hook Form"],
     github: "https://github.com/scriptedByManuel/Invoice-App",
     demo: "https://devpixelsolutions.netlify.app/",
+  },
+  {
+    title: "Savory Stories",
+    description: "A full-stack culinary platform for sharing recipes and food blogs. Features secure user authentication, personalized account profiles, and seamless image uploading for culinary creations. Built with a robust backend to handle dynamic content management.",
+    image: "/savory-stories.jpg",
+    tags: ["Express", "MongoDB", "API", "Next.js", "React", "Node.js", "Tailwind CSS", "Responsive"],
+    github: "https://github.com/scriptedByManuel/SavoryStories-Client-MERN",
+    demo: "https://savory-stories-manuel.vercel.app",
   },
 ]
 

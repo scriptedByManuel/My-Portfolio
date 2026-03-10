@@ -46,7 +46,7 @@ export function Contact() {
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="default" size="lg" asChild className="hover:scale-110 transition-transform duration-300">
-                <a href="mailto:your.email@example.com">
+                <a href="mailto:antthtoonaing74@gmail.com">
                   <Mail className="w-5 h-5 mr-2" />
                   Email Me
                 </a>
