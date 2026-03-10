@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from "react"
 const projects = [
   {
     title: "TrendFlow E-Commerce App",
-    description: "A React web app to browse trending products with dynamic listings, category navigation, animations, and a responsive UI. Built with Vite, React Router, Tailwind CSS, and Supabase.",
+    description: "A responsive e-commerce application focused on a seamless customer shopping experience. Features efficient product searching, a personalized favorites system, and a comprehensive order management module including detailed voucher lists. Built with a modern tech stack and a robust backend to handle dynamic product data and streamlined cash-on-delivery transactions.",
     image: "/trendflow-webpage.png",
     tags: ["React Router", "React Hook Form", "Responsive", "Supabase", "React", "Tailwind CSS"],
     github: "https://github.com/scriptedByManuel/TrendFlow",
