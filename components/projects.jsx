@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from "react"
 const projects = [
   {
     title: "TrendFlow E-Commerce App",
-    description: "A responsive e-commerce application focused on a seamless customer shopping experience. Features efficient product searching, a personalized favorites system, and a comprehensive order management module including detailed voucher lists. Built with a modern tech stack and a robust backend to handle dynamic product data and streamlined cash-on-delivery transactions.",
+    description: "A responsive e-commerce application focused on a seamless customer shopping experience. Features efficient product searching, a personalized favorites system, and detailed voucher lists. Built with a modern tech stack and a robust backend to handle dynamic product data and streamlined cash-on-delivery transactions.",
     image: "/trendflow-webpage.png",
     tags: ["React Router", "React Hook Form", "Responsive", "Supabase", "React", "Tailwind CSS"],
     github: "https://github.com/scriptedByManuel/TrendFlow",
@@ -27,7 +27,7 @@ const projects = [
     title: "Savory Stories",
     description: "A full-stack culinary platform for sharing recipes and food blogs. Features secure user authentication, personalized account profiles, and seamless image uploading for culinary creations. Built with a robust backend to handle dynamic content management.",
     image: "/savory-stories.jpg",
-    tags: ["Express", "MongoDB", "API", "Next.js", "React", "Node.js", "Tailwind CSS", "Responsive"],
+    tags: ["Express", "MongoDB", "API", "Next.js", "TypeScript", "React", "Node.js", "Tailwind CSS", "Responsive"],
     github: "https://github.com/scriptedByManuel/SavoryStories-Client-MERN",
     demo: "https://savory-stories-manuel.vercel.app",
   },
