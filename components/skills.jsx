@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react"
 const skills = [
   {
     category: "Tech Stack",
-    items: ["Tailwind CSS", "JavaScript", "React", "Next.js", "Node.js", "Express", "MongoDB", "MySQL", "Supabase"],
+    items: ["Tailwind CSS", "JavaScript", "TypeScript", "React", "Next.js", "Node.js", "Express", "MongoDB", "MySQL", "Supabase"],
   },
   {
     category: "Tools",
