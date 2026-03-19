@@ -17,7 +17,7 @@ const projects = [
   },
   {
     title: "Pixel Solutions Invoice App",
-    description: "A modern Inventory, Sales, and Voucher Management System built with React, TailwindCSS, and Laravel API. Features product management, sales tracking, vouchers, and user profile settings with clean UI and smooth loading states.",
+    description: "A modern Sales, and Voucher Management System built with React, TailwindCSS, and Laravel API. Features product management, sales tracking, vouchers, and user profile settings with clean UI and smooth loading states.",
     image: "/invoice-app.png",
     tags: ["React", "Tailwind CSS", "API", "Responsive", "SWR", "React Router", "React Hook Form"],
     github: "https://github.com/scriptedByManuel/Invoice-App",
