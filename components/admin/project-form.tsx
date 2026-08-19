@@ -12,7 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, ImagePlus, X, Loader2, Plus, Trash2 } from "lucide-react";
 import Link from "next/link";
 import { toast } from "sonner";
-import { projectSchema, ProjectFormValues, Project } from "@/types/project";
+import { projectFormSchema, ProjectFormValues, Project } from "@/types/project";
 import projectService from "@/services/projectService";
 import uploadService from "@/services/uploadService";
 
@@ -35,7 +35,7 @@ export default function ProjectForm({ mode, defaultValues }: ProjectFormProps) {
     setValue,
     formState: { isSubmitting, errors },
   } = useForm<ProjectFormValues>({
-    resolver: zodResolver(projectSchema) as never,
+    resolver: zodResolver(projectFormSchema) as never,
     defaultValues: defaultValues
       ? {
           title: defaultValues.title,
@@ -85,6 +85,11 @@ export default function ProjectForm({ mode, defaultValues }: ProjectFormProps) {
         imgFormData.append("image", photoFile);
         const imgResponse = await uploadService.uploadImage(imgFormData);
         imageUrl = imgResponse.url;
+      }
+
+      if (!imageUrl) {
+        toast.error("Please upload a project image");
+        return;
       }
 
       const payload = { ...data, image: imageUrl };

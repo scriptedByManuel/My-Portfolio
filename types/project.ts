@@ -14,7 +14,7 @@ export interface Project {
   updatedAt: string;
 }
 
-export const projectSchema = z.object({
+export const projectFormSchema = z.object({
   title: z
     .string()
     .min(1, "Title is required")
@@ -24,7 +24,7 @@ export const projectSchema = z.object({
     .array(z.string().min(1, "Tag cannot be empty"))
     .min(1, "At least one tag is required"),
   category: z.string().min(1, "Category is required"),
-  image: z.string().min(1, "Image URL is required"),
+  image: z.string().optional(),
   demo_link: z
     .string()
     .min(1, "Demo link is required")
@@ -35,4 +35,4 @@ export const projectSchema = z.object({
     .url("Invalid GitHub URL format"),
 });
 
-export type ProjectFormValues = z.infer<typeof projectSchema>;
+export type ProjectFormValues = z.infer<typeof projectFormSchema>;
