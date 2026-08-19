@@ -5,35 +5,10 @@ import { Button } from "@/components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
-
-const projects = [
-  {
-    title: "TrendFlow E-Commerce App",
-    description: "A responsive e-commerce application focused on a seamless customer shopping experience. Features efficient product searching, a personalized favorites system, and detailed voucher lists. Built with a modern tech stack and a robust backend to handle dynamic product data and streamlined cash-on-delivery transactions.",
-    image: "/trendflow-webpage.png",
-    tags: ["React Router", "React Hook Form", "Responsive", "Supabase", "React", "Tailwind CSS"],
-    github: "https://github.com/scriptedByManuel/TrendFlow",
-    demo: "https://trendflowmv.netlify.app/",
-  },
-  {
-    title: "Pixel Solutions Invoice App",
-    description: "A modern Sales, and Voucher Management System built with React, TailwindCSS, and Laravel API. Features product management, sales tracking, vouchers, and user profile settings with clean UI and smooth loading states.",
-    image: "/invoice-app.png",
-    tags: ["React", "Tailwind CSS", "API", "Responsive", "SWR", "React Router", "React Hook Form"],
-    github: "https://github.com/scriptedByManuel/Invoice-App",
-    demo: "https://invoice-app-hazel-three.vercel.app",
-  },
-  {
-    title: "Savory Stories",
-    description: "A full-stack culinary platform for sharing recipes and food blogs. Features secure user authentication, personalized account profiles, and seamless image uploading for culinary creations. Built with a robust backend to handle dynamic content management.",
-    image: "/savory-stories.jpg",
-    tags: ["Express", "MongoDB", "API", "Next.js", "TypeScript", "React", "Node.js", "Tailwind CSS", "Responsive"],
-    github: "https://github.com/scriptedByManuel/SavoryStories-Client-MERN",
-    demo: "https://savory-stories-manuel.vercel.app",
-  },
-]
+import { useProjects } from "@/hooks/useProjects"
 
 export function Projects() {
+  const { projects, isLoading } = useProjects()
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef(null)
 
@@ -68,74 +43,87 @@ export function Projects() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <Card
-              key={project.title}
-              className={`overflow-hidden flex flex-col opacity-0 hover:scale-105 hover:shadow-2xl transition-all duration-500 group ${
-                isVisible ? `animate-fade-in-up animation-delay-${index * 200 + 200}` : ""
-              }`}
-            >
-              <div className="relative h-48 w-full bg-muted overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                />
+        {isLoading ? (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="rounded-lg border bg-card overflow-hidden">
+                <div className="h-48 bg-muted animate-pulse" />
+                <div className="p-6 space-y-3">
+                  <div className="h-6 bg-muted animate-pulse rounded w-3/4" />
+                  <div className="h-4 bg-muted animate-pulse rounded" />
+                  <div className="h-4 bg-muted animate-pulse rounded w-1/2" />
+                </div>
               </div>
-              <CardHeader>
-                <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
-                  {project.title}
-                </CardTitle>
-                <CardDescription className="leading-relaxed">{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex-1 flex flex-col justify-between">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 bg-accent/20 text-accent-foreground rounded text-xs font-medium hover:bg-accent/30 transition-colors duration-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+            ))}
+          </div>
+        ) : projects.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground">No projects available yet.</p>
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project, index) => (
+              <Card
+                key={project._id}
+                className={`overflow-hidden flex flex-col opacity-0 hover:scale-105 hover:shadow-2xl transition-all duration-500 group ${
+                  isVisible ? `animate-fade-in-up animation-delay-${index * 200 + 200}` : ""
+                }`}
+              >
+                <div className="relative h-48 w-full bg-muted overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                 </div>
-
-                {project.warning && (
-                  <div className="mb-3 rounded-md border border-yellow-500/30 bg-yellow-500/10 px-3 py-2 text-sm text-yellow-600">
-                    {project.warning}
+                <CardHeader>
+                  <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
+                    {project.title}
+                  </CardTitle>
+                  <CardDescription className="leading-relaxed">{project.description}</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-1 flex flex-col justify-between">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 bg-accent/20 text-accent-foreground rounded text-xs font-medium hover:bg-accent/30 transition-colors duration-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
-                )}
 
-                <div className="flex gap-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    asChild
-                    className="flex-1 bg-transparent hover:scale-105 transition-transform duration-300"
-                  >
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </a>
-                  </Button>
-                  <Button
-                    variant="default"
-                    size="sm"
-                    asChild
-                    className="flex-1 hover:scale-105 transition-transform duration-300"
-                  >
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Demo
-                    </a>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                  <div className="flex gap-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      asChild
+                      className="flex-1 bg-transparent hover:scale-105 transition-transform duration-300"
+                    >
+                      <a href={project.github_link} target="_blank" rel="noopener noreferrer">
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </a>
+                    </Button>
+                    <Button
+                      variant="default"
+                      size="sm"
+                      asChild
+                      className="flex-1 hover:scale-105 transition-transform duration-300"
+                    >
+                      <a href={project.demo_link} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Demo
+                      </a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )
